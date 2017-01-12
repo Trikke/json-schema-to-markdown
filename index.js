@@ -67,7 +67,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 		if (schema.properties) {
 			//text.push(octothorpes + '* Properties of the `' + name + '` object:')
 			generatePropertySection(octothorpes, schema, subSchemas).forEach(function(section) {
-				text = text.concat(section)
+				text = text.concat('kaka '+ section)
 			})
 		}
 	} else if (schemaType === 'array') {
@@ -80,7 +80,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 		if (itemsType && name) {
 			//text.push(octothorpes + '* The object is an array with all elements of the type `' + itemsType + '`.')
 		} else if (itemsType) {
-			text.push('The schema defines an array with all elements of the type `' + itemsType + '`.')
+			//text.push('The schema defines an array with all elements of the type `' + itemsType + '`.')
 		} else {
 			var validationItems = []
 
