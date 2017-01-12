@@ -65,7 +65,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 
 	if (schemaType === 'object') {
 		if (schema.properties) {
-			text.push('* Properties of the `' + name + '` object:')
+			text.push(octothorpes + '* Properties of the `' + name + '` object:')
 			generatePropertySection(octothorpes, schema, subSchemas).forEach(function(section) {
 				text = text.concat(section)
 			})
