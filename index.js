@@ -65,7 +65,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 
 	if (schemaType === 'object') {
 		if (schema.properties) {
-			text.push('Properties of the `' + name + '` object:')
+			text.push('* Properties of the `' + name + '` object:')
 			generatePropertySection(octothorpes, schema, subSchemas).forEach(function(section) {
 				text = text.concat(section)
 			})
@@ -148,7 +148,7 @@ function generatePropertySection(octothorpes, schema, subSchemas) {
 	if (schema.properties) {
 		return Object.keys(schema.properties).map(function(propertyKey) {
 			var propertyIsRequired = schema.required && schema.required.indexOf(propertyKey) >= 0
-			return generateSchemaSectionText(octothorpes + '#', propertyKey, propertyIsRequired, schema.properties[propertyKey], subSchemas)
+			return generateSchemaSectionText(octothorpes + '  * ' , propertyKey, propertyIsRequired, schema.properties[propertyKey], subSchemas)
 		})
 	} else if (schema.oneOf) {
 		var oneOfList = schema.oneOf.map(function(innerSchema) {
@@ -181,8 +181,8 @@ module.exports = function(schema, startingOctothorpes) {
 	var octothorpes = startingOctothorpes || ''
 
 	if (schema.title) {
-		octothorpes += '#'
-		text.push(octothorpes + ' ' + schema.title)
+		octothorpes += '  '
+		text.push(octothorpes + ' * ' + schema.title)
 	}
 
 	if (schema.type === 'object') {
@@ -194,7 +194,7 @@ module.exports = function(schema, startingOctothorpes) {
 			text = text.concat(section)
 		})
 	} else {
-		text = text.concat(generateSchemaSectionText('#' + octothorpes, undefined, false, schema, subSchemaTypes));
+		text = text.concat(generateSchemaSectionText('  ' + octothorpes, undefined, false, schema, subSchemaTypes));
 	}
 
 	if (schema.definitions) {
