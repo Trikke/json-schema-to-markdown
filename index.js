@@ -14,7 +14,7 @@ function generateElementTitle(octothorpes, elementName, elementType, isRequired,
 		text.push('* `' + elementName + '`')
 	}
 	if (elementType || isRequired) {
-		text.push(' (')
+		text.push('* (')
 		if (elementType) {
 			text.push(elementType)
 		}
@@ -67,7 +67,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 		if (schema.properties) {
 			//text.push(octothorpes + '* Properties of the `' + name + '` object:')
 			generatePropertySection(octothorpes, schema, subSchemas).forEach(function(section) {
-				text = text.concat('kaka '+ section)
+				text = text.concat(section)
 			})
 		}
 	} else if (schemaType === 'array') {
