@@ -11,7 +11,7 @@ var coreSchemaTypes = [
 function generateElementTitle(octothorpes, elementName, elementType, isRequired, isEnum, example) {
 	var text = [ octothorpes ]
 	if(elementName) {
-		text.push(' `' + elementName + '`')
+		text.push('* `' + elementName + '`')
 	}
 	if (elementType || isRequired) {
 		text.push(' (')
@@ -59,7 +59,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 	var schemaType = getActualType(schema, subSchemas)
 
 	var text = [
-		generateElementTitle(octothorpes, '* ' + name, schemaType, isRequired, schema.enum, schema.example),
+		generateElementTitle(octothorpes, name, schemaType, isRequired, schema.enum, schema.example),
 		schema.description
 	]
 
