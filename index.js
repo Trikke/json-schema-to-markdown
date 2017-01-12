@@ -189,7 +189,7 @@ module.exports = function(schema, startingOctothorpes) {
 		if (schema.description) {
 			text.push(schema.description)
 		}
-		text.push('The schema defines the following properties:')
+		//text.push('The schema defines the following properties:')
 		generatePropertySection(octothorpes, schema, subSchemaTypes).forEach(function(section) {
 			text = text.concat(section)
 		})
