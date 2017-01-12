@@ -59,7 +59,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 	var schemaType = getActualType(schema, subSchemas)
 
 	var text = [
-		generateElementTitle(octothorpes, name, schemaType, isRequired, schema.enum, schema.example),
+		generateElementTitle(octothorpes, '* ' + name, schemaType, isRequired, schema.enum, schema.example),
 		schema.description
 	]
 
@@ -148,7 +148,7 @@ function generatePropertySection(octothorpes, schema, subSchemas) {
 	if (schema.properties) {
 		return Object.keys(schema.properties).map(function(propertyKey) {
 			var propertyIsRequired = schema.required && schema.required.indexOf(propertyKey) >= 0
-			return generateSchemaSectionText(octothorpes + '  ' , '* ' +propertyKey, propertyIsRequired, schema.properties[propertyKey], subSchemas)
+			return generateSchemaSectionText(octothorpes + '  ' , propertyKey, propertyIsRequired, schema.properties[propertyKey], subSchemas)
 		})
 	} else if (schema.oneOf) {
 		var oneOfList = schema.oneOf.map(function(innerSchema) {
