@@ -78,7 +78,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 		}
 
 		if (itemsType && name) {
-			text.push(octothorpes + '* The object is an array with all elements of the type `' + itemsType + '`.')
+			//text.push(octothorpes + '* The object is an array with all elements of the type `' + itemsType + '`.')
 		} else if (itemsType) {
 			text.push('The schema defines an array with all elements of the type `' + itemsType + '`.')
 		} else {
@@ -106,7 +106,7 @@ function generateSchemaSectionText(octothorpes, name, isRequired, schema, subSch
 		}
 
 		if (itemsType === 'object') {
-			text.push(octothorpes + '* The array object has the following properties:')
+			//text.push(octothorpes + '* The array object has the following properties:')
 			generatePropertySection(octothorpes, schema.items, subSchemas).forEach(function(section) {
 				text = text.concat(section)
 			})
