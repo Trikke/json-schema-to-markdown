@@ -148,7 +148,7 @@ function generatePropertySection(octothorpes, schema, subSchemas) {
 	if (schema.properties) {
 		return Object.keys(schema.properties).map(function(propertyKey) {
 			var propertyIsRequired = schema.required && schema.required.indexOf(propertyKey) >= 0
-			return generateSchemaSectionText(octothorpes + '  * ' , propertyKey, propertyIsRequired, schema.properties[propertyKey], subSchemas)
+			return generateSchemaSectionText(octothorpes + '  ' , propertyKey, propertyIsRequired, schema.properties[propertyKey], subSchemas)
 		})
 	} else if (schema.oneOf) {
 		var oneOfList = schema.oneOf.map(function(innerSchema) {
